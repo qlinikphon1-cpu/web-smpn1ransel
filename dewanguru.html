@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dewan Guru</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for subtle enhancements and better responsiveness */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .teacher-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .teacher-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        /* Additional responsiveness for very small screens */
+        @media (max-width: 640px) {
+            .teacher-card {
+                padding: 1rem;
+            }
+            .teacher-card img {
+                width: 100px;
+                height: 100px;
+            }
+            footer p {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-blue-600 text-white py-6 sm:py-8 text-center">
+        <h1 class="text-3xl sm:text-4xl font-bold">Dewan Guru<br> SMPN 1 Rantau Selatan</h1>
+        <!-- <p class="text-base sm:text-lg mt-2 px-4">Menyapa dan Bertemu dengan Tim Pendidik Kami</p> -->
+ 
+        <div class="mt-6 flex justify-center">
+            <a href="index.html" class="bg-blue-500 hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded shadow transition duration-200">
+            Kembali ke Halaman Utama
+            </a>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10" style="background-image: url(/img/bg1.png);">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 lg:gap-6">
+            <!-- Teacher 1 -->
+            <div class="rounded-lg shadow-md p-2sm:p-3 teacher-card bg-white" style="">
+                <div class="flex justify-center mb-4">
+                    <img src="img/kepsek.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Rita Ayustina Hsb.S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Kepala Sekolah</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 2 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/pkyono.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Suyono,S.Pd</h2>
+                <!-- <p class="text-gray-600 text-center mb-0 text-sm sm:text-base">Wakasek Bag.Kesiswaan</p> -->
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Inggris</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+
+            <!-- Teacher 3 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/bunana.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-purple-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-purple-200 flex items-center justify-center text-purple-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Nana Ariani,S.Psi</S></h2>
+                <!-- <p class="text-gray-600 text-center mb-0 text-sm sm:text-base">Wakasek Bag.Kurikulum</p> -->
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Ilmu Pengetahuan Alam</p>
+                <!-- <p class="text-gray-700 text-sm">Menginspirasi siswa melalui eksperimen praktis dan pemahaman konsep sains yang mendalam.</p> -->
+            </div>
+
+            <!-- Teacher 4 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buasma.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-orange-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-orange-200 flex items-center justify-center text-orange-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Asma Siregar,S.Pd</h2>
+                <!-- <p class="text-gray-600 text-center mb-0 text-sm sm:text-base">Wakasek Bag.Sarpras</p> -->
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Matematika</p>
+                <!-- <p class="text-gray-700 text-sm">Memotivasi siswa untuk mengeksplorasi kreativitas melalui seni dan budaya.</p> -->
+            </div>
+
+            <!-- Teacher 5 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/butriges.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-teal-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-teal-200 flex items-center justify-center text-teal-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Tri Gestawaty,M.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Indonesia</p>
+                <!-- <p class="text-gray-700 text-sm">Memiliki semangat tinggi dalam mengajarkan bahasa dan sastra Indonesia dengan pendekatan interaktif.</p> -->
+            </div>
+
+            <!-- Teacher 6 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/pakriswan.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Riswan Effendi Dalimunthe,S.t</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Informatika</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+
+            <!-- Teacher 7 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/bumeli.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Melianna Sary,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Matematika</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+            <!-- Teacher 8 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buyulhaida.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Yulhaida,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Indonesia</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 9 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/bucut.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Cut Faridahanum,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Inggris</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+           
+        <!-- Teacher 10 -->
+            <div class="rounded-lg shadow-md p-2 sm:p-3 teacher-card" style="background-color: rgb(255, 255, 255);">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buairin.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Mahraini Ulfa,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Jasmani, Olahraga dan Kesehatan</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 11 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buemawahyuna.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Ema Wahyuna Dalimunthe,S.Ag</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Agama Islam</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+
+            <!-- Teacher 12 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buerniwati.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-purple-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-purple-200 flex items-center justify-center text-purple-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Erniwati Gultom,M.Pd</S></h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Indonesia</p>
+                <!-- <p class="text-gray-700 text-sm">Menginspirasi siswa melalui eksperimen praktis dan pemahaman konsep sains yang mendalam.</p> -->
+            </div>
+
+            <!-- Teacher 13 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buharmayani.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-orange-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-orange-200 flex items-center justify-center text-orange-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Harmayani,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Ilmu Pengetahuan Alam</p>
+                <!-- <p class="text-gray-700 text-sm">Memotivasi siswa untuk mengeksplorasi kreativitas melalui seni dan budaya.</p> -->
+            </div>
+
+            <!-- Teacher 14 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buida.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-teal-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-teal-200 flex items-center justify-center text-teal-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Idawati Panjaitan,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Iimu Pengetahuan Sosial</p>
+                <!-- <p class="text-gray-700 text-sm">Memiliki semangat tinggi dalam mengajarkan bahasa dan sastra Indonesia dengan pendekatan interaktif.</p> -->
+            </div>
+
+            <!-- Teacher 15 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buindah.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Indah Syahputri,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Matematika</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+
+            <!-- Teacher 16 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/bulinda.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Lindawati Sitorus,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Inggris</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+            <!-- Teacher 17 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/bunitadamayanti.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Nita Damayanti,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Inggris</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 18 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/bunitadewi.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Nita Dewi Siregar,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Indonesia</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+
+            <!-- Teacher 19 -->
+            <div class="rounded-lg shadow-md p-2 sm:p-3 teacher-card" style="background-color: rgb(255, 255, 255);">
+                <div class="flex justify-center mb-4">
+                    <img src="imgguru/burabiahtul.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Robiatul Adawiyah.S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Kewarganegaraan</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 20 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buretno.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Retnovia Dhana,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Jasmani, Olahraga dan Kesehatan</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+
+            <!-- Teacher 21 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/burosmiati.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-purple-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-purple-200 flex items-center justify-center text-purple-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Rosmiati,S.Pd</S></h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Matematika</p>
+                <!-- <p class="text-gray-700 text-sm">Menginspirasi siswa melalui eksperimen praktis dan pemahaman konsep sains yang mendalam.</p> -->
+            </div>
+
+            <!-- Teacher 22 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/busimaibang.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-orange-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-orange-200 flex items-center justify-center text-orange-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Nursinta Simaibang,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Ilmu Pengetahuan Alam</p>
+                <!-- <p class="text-gray-700 text-sm">Memotivasi siswa untuk mengeksplorasi kreativitas melalui seni dan budaya.</p> -->
+            </div>
+
+            <!-- Teacher 23 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/busiska.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-teal-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-teal-200 flex items-center justify-center text-teal-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Siska Suenriani Siburian,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Indonesia</p>
+                <!-- <p class="text-gray-700 text-sm">Memiliki semangat tinggi dalam mengajarkan bahasa dan sastra Indonesia dengan pendekatan interaktif.</p> -->
+            </div>
+
+            <!-- Teacher 24 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/butarigan.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Agustina Tarigan.S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Ilmu Pengetahuan Alam</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+
+            <!-- Teacher 25 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/butya.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Tya Munifah,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Ilmu Pengetahuan Alam</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+            <!-- Teacher 26 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buzuliani.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Zuliani Ritonga,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Ilmu Pengetahuan Alam</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 27 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/pksamsutoat.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Samsu Taat Rambe,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru BP/BK</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+           
+        <!-- Teacher 28 -->
+            <div class="rounded-lg shadow-md p-2 sm:p-3 teacher-card" style="background-color: rgb(255, 255, 255);">
+                <div class="flex justify-center mb-4">
+                    <img src="#" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Nurhanifah,S.Ag</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Agama Islam</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 29 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/butety.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Tetty Matanari,M.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Indonesia</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+
+            <!-- Teacher 30 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/bufahria.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-purple-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-purple-200 flex items-center justify-center text-purple-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Fahria Amar,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Matematika</p>
+                <!-- <p class="text-gray-700 text-sm">Menginspirasi siswa melalui eksperimen praktis dan pemahaman konsep sains yang mendalam.</p> -->
+            </div>
+
+            <!-- Teacher 31 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buemma.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-orange-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-orange-200 flex items-center justify-center text-orange-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Emma Juhanna,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Matematika</p>
+                <!-- <p class="text-gray-700 text-sm">Memotivasi siswa untuk mengeksplorasi kreativitas melalui seni dan budaya.</p> -->
+            </div>
+
+            <!-- Teacher 32 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/bubasa.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-teal-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-teal-200 flex items-center justify-center text-teal-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Basa Hotmaida Purba,S.Pd.K</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Agama Kristen</p>
+                <!-- <p class="text-gray-700 text-sm">Memiliki semangat tinggi dalam mengajarkan bahasa dan sastra Indonesia dengan pendekatan interaktif.</p> -->
+            </div>
+
+            <!-- Teacher 33 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/pakfaisal.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Faisal Amri,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Indoneisa</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+
+            <!-- Teacher 34 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/budewirohana.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Dewi Rohana,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Inggris</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+            <!-- Teacher 35 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/budina.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Dina Rianti Simanjuntak,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Inggris</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 36 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="#" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Elly Nora Sihite,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Ilmu Pengetahuan Sosial</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+
+            <!-- Teacher 37 -->
+            <div class="rounded-lg shadow-md p-2 sm:p-3 teacher-card" style="background-color: rgb(255, 255, 255);">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/pakjamil.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Muhammad Jamil Harahap,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Jasmani, Olahraga dan Kesehatan</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 38 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/pakfadil.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Muhammad Fadillah,S.Pd</h2>   
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Jasmani, Olahraga dan Kesehatan</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+
+            <!-- Teacher 39 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/burini.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-purple-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-purple-200 flex items-center justify-center text-purple-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Rini Dekhita Hasibuan,S.Pd</S></h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru BP/BK</p>
+                <!-- <p class="text-gray-700 text-sm">Menginspirasi siswa melalui eksperimen praktis dan pemahaman konsep sains yang mendalam.</p> -->
+            </div>
+
+            <!-- Teacher 40 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/busuri.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-orange-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-orange-200 flex items-center justify-center text-orange-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Suri Atina Siregar,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Bahasa Inggris</p>
+                <!-- <p class="text-gray-700 text-sm">Memotivasi siswa untuk mengeksplorasi kreativitas melalui seni dan budaya.</p> -->
+            </div>
+
+            <!-- Teacher 41 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="#" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-teal-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-teal-200 flex items-center justify-center text-teal-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Damayanti Silaen,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Informatika</p>
+                <!-- <p class="text-gray-700 text-sm">Memiliki semangat tinggi dalam mengajarkan bahasa dan sastra Indonesia dengan pendekatan interaktif.</p> -->
+            </div>
+
+            <!-- Teacher 42 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="#" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Panca Anugrah Sagala.S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Seni Tari</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+
+            <!-- Teacher 43 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="#" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-pink-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Dewi Novita Beatriche Br Hutahuruk,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Seni Tari</p>
+                <!-- <p class="text-gray-700 text-sm">Membekali siswa dengan keterampilan teknologi masa kini melalui pelajaran yang praktis dan menyenangkan.</p> -->
+            </div>
+            <!-- Teacher 44 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="#" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Royani Rawi Ritonga,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Seni Tari</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 45 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="#" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Azizah Rindani Pasaribu,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru BP/BK</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+           
+        <!-- Teacher 46 -->
+            <div class="rounded-lg shadow-md p-2 sm:p-3 teacher-card" style="background-color: rgb(255, 255, 255);">
+                <div class="flex justify-center mb-4">
+                    <img src="#" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-blue-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Rahmad Hidayat,S.Pd i</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Agama Islam</p>
+                <!-- <p class="text-gray-700 text-sm">Berpengalaman lebih dari 20 tahun dalam pendidikan. Fokus pada pengembangan siswa holistik.</p> -->
+            </div>
+
+            <!-- Teacher 47 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/budewiaswita.jpg" alt="" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-green-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Dewi Aswita Br Siagian,S.Pd</h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Agama Islam</p>
+                <!-- <p class="text-gray-700 text-sm">Ahli dalam membuat matematika menjadi menarik dan mudah dipahami bagi siswa dari semua tingkat.</p> -->
+            </div>
+
+            <!-- Teacher 48 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/pakdoly.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-purple-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-purple-200 flex items-center justify-center text-orange-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">R. Doly Indra Nasution,S.Pd</S></h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Ilmu Pengetahuan Sosial</p>
+                <!-- <p class="text-gray-700 text-sm">Menginspirasi siswa melalui eksperimen praktis dan pemahaman konsep sains yang mendalam.</p> -->
+            </div>
+
+              <!-- Teacher 49 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/paksyfrudin.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-red-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-green-200 flex items-center justify-center text-purple-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Syafruddin Pane, S.pd.i</S></h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Pendidikan Agama Islam</p>
+                <!-- <p class="text-gray-700 text-sm">Menginspirasi siswa melalui eksperimen praktis dan pemahaman konsep sains yang mendalam.</p> -->
+            </div>
+
+              <!-- Teacher 50 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buradinda.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-pink-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-purple-200 flex items-center justify-center text-pink-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Radinda Tamara Ayu Marpaung,S.kom</S></h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru Informatika</p>
+                <!-- <p class="text-gray-700 text-sm">Menginspirasi siswa melalui eksperimen praktis dan pemahaman konsep sains yang mendalam.</p> -->
+            </div>
+
+            <!-- Teacher 51 -->
+            <div class="bg-white rounded-lg shadow-md p-4 sm:p-6 teacher-card">
+                <div class="flex justify-center mb-4">
+                    <img src="/imgguru/buummi.jpg" alt="#" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full object-cover border-4 border-purple-200" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-purple-200 flex items-center justify-center text-cyan-800 font-semibold text-sm" style="display: none;">Belum Ada Foto</div>
+                </div>
+                <h2 class="text-lg sm:text-xl font-semibold text-center mb-2">Ummi Khurriyah,S.pd.</S></h2>
+                <p class="text-gray-600 text-center mb-4 text-sm sm:text-base">Guru </p>
+                <!-- <p class="text-gray-700 text-sm">Menginspirasi siswa melalui eksperimen praktis dan pemahaman konsep sains yang mendalam.</p> -->
+            </div>
+        </div>
+
+        <div class="mt-6 flex justify-center">
+            <a href="index.html" class="bg-blue-700 hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded shadow transition duration-200">
+            Kembali ke Halaman Utama
+            </a>
+</div>
+        
+    </main>
+    <!-- <footer class="bg-blue-600 text-white py-3 sm:py-5 text-right" >
+        <div class="border-t white mt-1 pt-1"></div>
+            <div class="mr-10">
+                <p class="text-[10px]">SMP Negeri 1 Rantau Selatan. Semua Hak Dilindungi.</p>   
+                <p class="text-[9px]">baktiku padamu negeri |&#xA9 2025, R.Febrianto, S.Kom</p>
+            </div>
+    </footer> -->
+
+    <script>    
+        // JavaScript for simple interactivity: alert on card click and touch for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.teacher-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const name = this.querySelector('h2').textContent;
+                    alert(`Selamat datang di profil ${name}!`);
+                });
+                // Add touch for better mobile interaction
+                card.addEventListener('touchstart', function() {
+                    this.classList.add('active');
+                });
+                card.addEventListener('touchend', function() {
+                    this.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>

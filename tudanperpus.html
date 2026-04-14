@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tata Usaha & Perpustakaan</title>
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: rgb(255, 255, 255);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            background: #9fc7ef;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: #4facfe;
+            background: #e3f2fd;
+        }
+
+        .tab-btn.active {
+            color: #4facfe;
+            background: white;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            position: relative;
+            min-height: 400px;
+        }
+
+        .tab-panel {
+            display: none;
+            padding: 30px;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.4s ease;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .tab-panel.active {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Staff Grid */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .staff-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .staff-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .staff-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .staff-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .staff-position {
+            color: #6c757d;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .staff-desc {
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        /* Load Animation */
+        .tab-content {
+            animation: loadFade 0.8s ease;
+        }
+
+        @keyframes loadFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tombol kembali bawah */
+        .bottom-back {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: linear-gradient(135deg,#0881eb 0%, #07b2bb 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            cursor: pointer;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-weight: 600;
+            z-index: 9999;
+            transition: transform .12s ease, box-shadow .12s ease;
+        }
+        .bottom-back svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; }
+        .bottom-back:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.18); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tab-nav {
+                flex-direction: column;
+            }
+
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Staf Tata Usaha & Perpustakaan</h1>
+            <p>Selamat datang di Web SMPN 1 Rantau Selatan.</p>
+        </div>
+
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('tu')">Tata Usaha</button>
+            <button class="tab-btn" onclick="switchTab('perpustakaan')">Perpustakaan</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Tab Tata Usaha -->
+            <div id="tu" class="tab-panel active">
+                <h2 style="margin-bottom: 20px; color: hsl(208, 89%, 56%); font-size: 1.8em; ">Tata Usaha</h2>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <img src="/imgtu&perpus/bukenti.jpg" alt="Belum Ada Foto" class="staff-photo">
+                        <div class="staff-name">Sukenti</div>
+                        <div class="staff-position">Bendahara Sekolah</div>
+                        <div class="staff-desc"></div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="/imgtu&perpus/busukatmi.jpg" alt="photo" class="staff-photo">
+                        <div class="staff-name">Sukatmi</div>
+                        <div class="staff-position">Staf Tata Usaha</div>
+                        <div class="staff-desc"></div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="/imgtu&perpus/budini.jpg" alt="photo" class="staff-photo">
+                        <div class="staff-name">Dini Amelia</div>
+                        <div class="staff-position">Staf Tata Usaha</div>
+                        <div class="staff-desc"></div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="/imgtu&perpus/bufatimah.jpg" alt="Belum Ada Foto" class="staff-photo">
+                        <div class="staff-name">Fatimah Hasibuan,SE</div>
+                        <div class="staff-position">Staf Tata Usaha</div>
+                        <div class="staff-desc"></div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="/imgtu&perpus/butria.jpg" alt="Belum Ada Foto" class="staff-photo">
+                        <div class="staff-name">Tria Anggraini,SE</div>
+                        <div class="staff-position">Staf Tata Usaha</div>
+                        <div class="staff-desc"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Perpustakaan -->
+            <div id="perpustakaan" class="tab-panel">
+                <h2 style="margin-bottom: 20px; color: hsl(208, 84%, 55%); font-size: 1.8em;"> Perpustakaan</h2>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <img src="/imgguru/butety.jpg" alt="Belum Ada Foto" class="staff-photo">
+                        <div class="staff-name">Tety Matanari,S.Pd</div>
+                        <div class="staff-position">Kepala Perpustakaan</div>
+                        <div class="staff-desc"></div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="#" alt="Belum Ada Foto" class="staff-photo">
+                        <div class="staff-name">Siti Masitah,S.Pd</div>
+                        <div class="staff-position">Petugas Perpustakaan</div>
+                        <div class="staff-desc"></div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="/imgtu&perpus/pakazis.jpg" alt="Belum Ada Foto" class="staff-photo">
+                        <div class="staff-name">Azis Zulazmi,SH</div>
+                        <div class="staff-position">Petugas Perpustakaan</div>
+                        <div class="staff-desc"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tombol Kembali di bagian bawah -->
+    <button id="btn-back-bottom" class="bottom-back" aria-label="Kembali">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        Kembali
+    </button>
+
+    <script>
+        // Fungsi switch tab dengan animasi
+        function switchTab(tabName) {
+            // Hide all panels
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => {
+                panel.classList.remove('active');
+                panel.style.opacity = '0';
+                panel.style.transform = 'scale(0.95)';
+            });
+
+            // Remove active from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected panel with animation
+            const selectedPanel = document.getElementById(tabName);
+            selectedPanel.classList.add('active');
+            setTimeout(() => {
+                selectedPanel.style.opacity = '1';
+                selectedPanel.style.transform = 'scale(1)';
+            }, 10); // Delay kecil untuk trigger transition
+
+            // Add active to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Load animation untuk seluruh konten
+        window.addEventListener('load', () => {
+            document.querySelector('.tab-content').style.opacity = '1';
+        });
+
+        // Tombol kembali bawah
+        (function () {
+            const backBtn = document.getElementById('btn-back-bottom');
+            if (!backBtn) return;
+            backBtn.addEventListener('click', function () {
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else if (document.referrer) {
+                    window.location.href = document.referrer;
+                } else {
+                    window.location.href = '/';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

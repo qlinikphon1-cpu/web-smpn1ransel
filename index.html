@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/img/lgo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMPN 1 Ransel - Sekolah Unggulan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header/Navbar -->
+    <nav class="bg-blue-700 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Title -->
+                <div class="flex items-center gap-3">
+                    <img src="/img/lgo.png" alt="Logo SMPN 1 Rantau Selatan" class="h-12 w-auto bg-white rounded-full p-0.5 shadow-sm">
+                    <div class="leading-tight">
+                        <h1 class="text-lg md:text-2xl font-bold tracking-tight">SMPN 1 RANTAU SELATAN</h1>
+                        <p class="text-[10px] md:text-sm text-blue-200 font-medium">Sekolah Rujukan Kabupaten Labuhanbatu</p>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button id="menu-toggle" class="text-white hover:text-yellow-400 focus:outline-none p-2 rounded-md transition">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="dewanguru.html" class="hover:text-yellow-400 font-medium transition duration-200 text-sm lg:text-base">Dewan Guru</a>
+                    <a href="tudanperpus.html" class="hover:text-yellow-400 font-medium transition duration-200 text-sm lg:text-base">Staff TU & Perpus</a>
+                    <div class="relative group">
+                        <button onclick="toggleDropdown('profil-dropdown')" class="hover:text-yellow-400 font-medium flex items-center gap-1 transition duration-200 text-sm lg:text-base" id="galery">
+                            Galeri Sekolah
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <!-- Dropdown -->
+                        <div id="profil-dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-100 transform origin-top-left scale-95 group-hover:scale-100">
+                            <a href="drumband.html" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">Drumband</a>
+                            <a href="pesan.html" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">Pramuka</a>
+                            <a href="pesan.html" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">OSIS</a>
+                            <a href="futsal.html" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">FUTSAL</a>
+                        </div>
+                    </div>
+                    <a href="pesan.html" class="bg-yellow-500 hover:bg-yellow-400 text-blue-900 px-5 py-2 rounded-full font-bold transition duration-300 shadow-md text-sm lg:text-base transform hover:-translate-y-0.5">PPDB</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="nav-menu" class="hidden md:hidden bg-blue-800 border-t border-blue-600 shadow-inner">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="dewanguru.html" class="block px-3 py-3 rounded-lg text-base font-medium text-blue-100 hover:bg-blue-700 hover:text-white transition">Dewan Guru</a>
+                <a href="tudanperpus.html" class="block px-3 py-3 rounded-lg text-base font-medium text-blue-100 hover:bg-blue-700 hover:text-white transition">Staff TU & Perpus</a>
+                <div class="px-3 py-3 rounded-lg hover:bg-blue-700 transition">
+                    <button onclick="toggleDropdown('mobile-profil-dropdown')" class="w-full text-left flex items-center justify-between text-base font-medium text-blue-100 hover:text-white">
+                        Galeri Sekolah
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="mobile-profil-dropdown" class="hidden mt-3 pl-4 border-l-2 border-blue-600 space-y-2">
+                        <a href="drumband.html" class="block py-2 text-sm text-blue-200 hover:text-yellow-400 transition">Drumband</a>
+                        <a href="pesan.html" class="block py-2 text-sm text-blue-200 hover:text-yellow-400 transition">Pramuka</a>
+                        <a href="pesan.html" class="block py-2 text-sm text-blue-200 hover:text-yellow-400 transition">OSIS</a>
+                        <a href="futsal.html" class="block py-2 text-sm text-blue-200 hover:text-yellow-400 transition">FUTSAL</a>
+                    </div>
+                </div>
+                <a href="pesan.html" class="block px-3 py-3 mt-2 rounded-lg text-base font-bold bg-yellow-500 text-blue-900 text-center hover:bg-yellow-400 transition shadow-md">PPDB Online</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-[85vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 w-full h-full">
+            <img src="/img/fto1.jpeg" alt="Hero Background" class="w-full h-full object-cover">
+            <!-- Modern Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-blue-800/80 to-transparent"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <img src="/img/logokab.png" alt="Logo Kab" class="mx-auto w-20 md:w-28 h-auto mb-6 drop-shadow-2xl hover:scale-105 transition duration-500 ease-in-out">
+            <h2 class="text-3xl mb-4 md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg tracking-tight">
+                Selamat Datang di <br class="hidden md:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">SMPN 1 Rantau Selatan</span>
+            </h2>
+            <p class="text-base md:text-2xl text-blue-50 font-medium mb-10 drop-shadow-md max-w-2xl mx-auto leading-relaxed">
+                Mendidik dengan Hati, Berprestasi dengan Bangga. Bersama Membangun Generasi Cerdas Berkarakter.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+                <a href="#profil" class="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold py-3.5 px-8 rounded-full shadow-xl transform hover:-translate-y-1 transition duration-300">Profil Kami</a>
+                <a href="#berita" class="bg-transparent border-2 border-white/80 text-white hover:bg-white hover:text-blue-900 font-bold py-3.5 px-8 rounded-full shadow-lg transform hover:-translate-y-1 transition duration-300 backdrop-blur-sm">Berita Terbaru</a>
+            </div>
+        </div>
+        <!-- Decorative Bottom Curve -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-none z-10">
+            <svg class="relative block w-full h-12 md:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,121.32,199.5,110.51,241.62,103.87,282.8,85.29,321.39,56.44Z" class="fill-gray-50"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Profil Kepala Sekolah & Kata Sambutan -->
+    <section id="profil" class="py-16 md:py-24 bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-stretch">
+                <!-- Profil Kepsek -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-500 border border-gray-100 h-full flex flex-col">
+                        <div class="h-32 bg-gradient-to-r from-blue-700 to-blue-500 relative">
+                            <!-- Decorative circles -->
+                            <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 rounded-full bg-white opacity-10"></div>
+                            <div class="absolute bottom-0 left-0 -ml-8 -mb-8 w-24 h-24 rounded-full bg-white opacity-10"></div>
+                        </div>
+                        <div class="px-6 pb-8 relative flex-grow flex flex-col items-center">
+                            <div class="-mt-16 mb-5">
+                                <img src="/img/kepsek.jpg" alt="Foto Kepsek" class="w-32 h-32 object-cover rounded-full border-4 border-white shadow-lg mx-auto bg-gray-200">
+                            </div>
+                            <div class="text-center flex-grow">
+                                <h3 class="text-xl font-bold text-gray-900 mb-1">Rita Ayustina Hasibuan, S.Pd</h3>
+                                <p class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-4">Kepala Sekolah</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">"Memimpin dengan keteladanan, mendidik dengan penuh kasih sayang, untuk mewujudkan generasi emas Indonesia."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kata Sambutan -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 h-full border border-gray-100 relative overflow-hidden">
+                        <!-- Decorative Quote Icon -->
+                        <div class="absolute top-6 right-8 text-blue-50 opacity-50">
+                            <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 32 32"><path d="M10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6v10H6v-4h4v-4zm16 0c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6v10h-10v-4h4v-4z"/></svg>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="flex items-center mb-6">
+                                <div class="w-1.5 h-8 bg-yellow-400 rounded-full mr-4"></div>
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900">Kata Sambutan</h3>
+                            </div>
+                            <div class="prose max-w-none text-gray-600 space-y-5">
+                                <p class="text-lg md:text-xl font-medium text-gray-800 leading-relaxed">Assalamu'alaikum Warahmatullahi Wabarakatuh.</p>
+                                <p class="leading-relaxed text-justify md:text-left">Selamat datang di website resmi SMPN 1 Rantau Selatan. Semoga informasi yang disajikan di laman ini memudahkan warga sekolah dan masyarakat luas untuk mengenal lebih dekat berbagai kegiatan, prestasi, dan layanan pendidikan di sekolah kami.</p>
+                                <p class="leading-relaxed text-justify md:text-left">Kami berkomitmen terus meningkatkan kualitas pendidikan melalui pembelajaran yang bermutu, pembentukan karakter unggul, serta pengembangan potensi setiap siswa secara optimal. Dukungan semua pihak, baik orang tua, masyarakat, dan pemerintah sangat kami harapkan agar visi dan misi sekolah dapat terwujud dengan baik.</p>
+                                <p class="leading-relaxed font-medium italic text-blue-700 mt-6">"Pendidikan adalah paspor ke masa depan, karena hari esok adalah milik mereka yang mempersiapkannya hari ini."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi Misi -->
+    <section class="py-20 bg-blue-900 relative bg-cover bg-center bg-fixed" style="background-image: url('/img/bg1.png');">
+        <div class="absolute inset-0 bg-blue-900/85 mix-blend-multiply"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight" id="visi">Visi & Misi Sekolah</h2>
+                <div class="w-20 h-1.5 bg-yellow-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Visi -->
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl hover:bg-white/20 transition duration-500 flex flex-col">
+                    <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-300 to-yellow-500 text-blue-900 rounded-2xl mb-8 mx-auto shadow-lg transform rotate-3 hover:rotate-0 transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-6 uppercase tracking-wider">Visi</h3>
+                    <div class="flex-grow flex items-center justify-center">
+                        <p class="text-blue-50 text-center text-xl md:text-2xl font-medium italic leading-relaxed">
+                            "Terwujudnya Peserta Didik Berprestasi, Berkarakter dan Cinta Lingkungan yang Berlandaskan IMTAQ dan IPTEK."
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Misi -->
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl hover:bg-white/20 transition duration-500">
+                    <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-300 to-yellow-500 text-blue-900 rounded-2xl mb-8 mx-auto shadow-lg transform -rotate-3 hover:rotate-0 transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 00-2-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-8 uppercase tracking-wider">Misi</h3>
+                    <ul class="space-y-4 text-blue-50">
+                        <li class="flex items-start bg-white/5 p-3 rounded-xl hover:bg-white/10 transition">
+                            <svg class="w-6 h-6 text-yellow-400 mr-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-sm md:text-base">Menumbuhkan Karakter Positif pada Setiap Diri Peserta Didik Melalui Penerapan Budaya Positif.</span>
+                        </li>
+                        <li class="flex items-start bg-white/5 p-3 rounded-xl hover:bg-white/10 transition">
+                            <svg class="w-6 h-6 text-yellow-400 mr-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-sm md:text-base">Menanamkan jiwa yang berkarakter melalui profil pelajar pancasila dan pembiasaan.</span>
+                        </li>
+                        <li class="flex items-start bg-white/5 p-3 rounded-xl hover:bg-white/10 transition">
+                            <svg class="w-6 h-6 text-yellow-400 mr-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-sm md:text-base">Menanamkan sifat cinta lingkungan kepada seluruh warga sekolah.</span>
+                        </li>
+                        <li class="flex items-start bg-white/5 p-3 rounded-xl hover:bg-white/10 transition">
+                            <svg class="w-6 h-6 text-yellow-400 mr-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-sm md:text-base">Membuat pembelajaran yang berkualitas dan berdampak pada peningkatan prestasi peserta didik.</span>
+                        </li>
+                        <li class="flex items-start bg-white/5 p-3 rounded-xl hover:bg-white/10 transition">
+                            <svg class="w-6 h-6 text-yellow-400 mr-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-sm md:text-base">Melaksanakan pembelajaran yang mampu meningkatkan IMTAQ (Iman dan Takwa).</span>
+                        </li>
+                        <li class="flex items-start bg-white/5 p-3 rounded-xl hover:bg-white/10 transition">
+                            <svg class="w-6 h-6 text-yellow-400 mr-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-sm md:text-base">Melaksanakan pembelajaran yang mampu meningkatkan IPTEK secara adaptif.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BERITA KEGIATAN & KOMENTAR -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                
+                <!-- Berita Kegiatan -->
+                <div id="berita" class="lg:col-span-7 bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-gray-100 relative">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-700 to-blue-400 rounded-t-3xl"></div>
+                    
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-4 border-b border-gray-100 gap-4">
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 flex items-center gap-3">
+                            <div class="p-2 bg-blue-100 rounded-lg text-blue-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3L22 4"/></svg>
+                            </div>
+                            Berita Sekolah
+                        </h3>
+                        <div class="flex items-center space-x-3 self-end sm:self-auto">
+                            <span id="admin-badge" class="hidden px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full border border-green-200 shadow-sm animate-pulse">Admin Aktif</span>
+                            <button id="btn-admin" class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs md:text-sm font-semibold px-4 py-2 rounded-xl transition duration-200 shadow-sm">Masuk Admin</button>
+                        </div>
+                    </div>
+
+                    <!-- Panel admin -->
+                    <div id="admin-panel" class="hidden mb-8 bg-blue-50/50 p-6 rounded-2xl border border-blue-100 shadow-sm">
+                        <h4 class="font-bold text-blue-800 mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                            Tambah Berita Baru
+                        </h4>
+                        <form id="form-news" class="space-y-4" enctype="multipart/form-data">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="md:col-span-2">
+                                    <label class="block text-xs font-semibold text-gray-600 mb-1">Judul Berita</label>
+                                    <input id="news-title" type="text" placeholder="Masukkan judul..." class="w-full px-4 py-2.5 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none text-sm" required>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-600 mb-1">Tanggal</label>
+                                    <input id="news-date" type="date" class="w-full px-4 py-2.5 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 mb-1">Ringkasan Berita</label>
+                                <textarea id="news-summary" placeholder="Tuliskan ringkasan singkat..." class="w-full px-4 py-2.5 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none text-sm resize-none" rows="3" required></textarea>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-end gap-4 pt-2">
+                                <div class="w-full">
+                                    <label class="block text-xs font-semibold text-gray-600 mb-1">Upload Foto (Opsional)</label>
+                                    <input id="news-image" type="file" accept="image/*" class="w-full text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200 transition cursor-pointer" />
+                                </div>
+                                <button type="submit" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-2.5 rounded-xl shadow-md transition duration-200 flex-shrink-0">Simpan Berita</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- List Berita -->
+                    <div id="newsletter-list" class="space-y-5">
+                        <!-- Tiga berita terbaru dirender di sini via JS -->
+                    </div>
+
+                    <!-- Toggle berita lama -->
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <button id="toggle-older" class="w-full flex items-center justify-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 py-3.5 rounded-xl transition duration-200 group">
+                            <span id="toggle-older-label">Lihat Semua Berita</span>
+                            <svg id="toggle-older-icon" class="w-5 h-5 transform group-hover:translate-y-0.5 transition-all duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.1 1.02l-4.25 4.656a.75.75 0 01-1.09 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+                        </button>
+                        
+                        <div id="older-list" class="mt-4 hidden bg-gray-50/80 rounded-2xl p-5 max-h-96 overflow-y-auto space-y-4 border border-gray-200 custom-scrollbar">
+                            <!-- Berita lama dirender di sini -->
+                        </div>
+                    </div>
+                    <p id="berita-msg" class="mt-4 text-sm font-medium text-green-600 text-center absolute bottom-4 left-0 right-0"></p>
+                </div>
+
+                <!-- Saran dan Komentar -->
+                <div class="lg:col-span-5 bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-gray-100 relative h-fit lg:sticky lg:top-28">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-t-3xl"></div>
+                    
+                    <div class="flex items-center mb-8 pb-4 border-b border-gray-100">
+                        <h3 class="text-xl md:text-2xl font-extrabold text-gray-900 flex items-center gap-3">
+                            <div class="p-2 bg-yellow-100 rounded-lg text-yellow-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                            </div>
+                            Saran & Masukan
+                        </h3>
+                    </div>
+                    
+                    <form id="form-komentar" class="mb-8">
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wide" for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" name="nama" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition outline-none text-sm" placeholder="Contoh: Budi Santoso" required>
+                        </div>
+                        <div class="mb-5">
+                            <label class="block text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wide" for="komentar">Pesan / Saran</label>
+                            <textarea id="komentar" name="komentar" rows="3" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition outline-none text-sm resize-none" placeholder="Tuliskan masukan atau saran yang membangun..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold px-6 py-3.5 rounded-xl shadow-lg transform hover:-translate-y-0.5 transition duration-300 flex justify-center items-center gap-2">
+                            <span>Kirim Pesan</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                        </button>
+                    </form>
+
+                    <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+                            Pesan Terbaru
+                        </h4>
+                        <ul id="list-komentar" class="space-y-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+                            <!-- Komentar dirender via JS -->
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white pt-16 pb-8 border-t-[8px] border-yellow-500 relative overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="/img/lgo.png" alt="Logo" class="w-16 h-auto bg-white rounded-full p-1.5 shadow-md">
+                        <div>
+                            <h4 class="text-xl font-extrabold leading-tight text-white">SMPN 1<br><span class="text-yellow-400">Rantau Selatan</span></h4>
+                        </div>
+                    </div>
+                    <p class="text-blue-200 text-sm leading-relaxed mb-6">Mendidik dengan Hati, Berprestasi dengan Bangga. Sekolah Rujukan dengan fasilitas terbaik untuk masa depan gemilang.</p>
+                    <div class="flex space-x-4">
+                        <!-- Social Icons placeholders -->
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-blue-900 transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-blue-900 transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-blue-900 transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                    </div>
+                </div>
+                
+                <!-- Kontak -->
+                <div class="lg:col-span-1">
+                    <h4 class="text-base font-bold mb-6 text-yellow-400 uppercase tracking-widest">Hubungi Kami</h4>
+                    <ul class="space-y-4 text-blue-100 text-sm">
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-white/10 p-1.5 rounded-md text-yellow-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+                            <span class="leading-relaxed">Jl. KH. Dewantara No.127,<br>Rantauprapat, Labuhanbatu,<br>Sumatera Utara 21415</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="bg-white/10 p-1.5 rounded-md text-yellow-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+                            <a href="mailto:smpn1.ransel@gmail.com" class="hover:text-yellow-400 transition-colors">smpn1.ransel@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Jam Operasional -->
+                <div class="lg:col-span-1">
+                    <h4 class="text-base font-bold mb-6 text-yellow-400 uppercase tracking-widest">Jam Operasional</h4>
+                    <ul class="space-y-3 text-blue-100 text-sm">
+                        <li class="flex justify-between border-b border-blue-800/50 pb-2">
+                            <span>Senin - Kamis</span>
+                            <span class="font-bold text-white bg-blue-800 px-2 py-0.5 rounded">07.00 - 13.00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-blue-800/50 pb-2">
+                            <span>Jumat</span>
+                            <span class="font-bold text-white bg-blue-800 px-2 py-0.5 rounded">07.00 - 11.30</span>
+                        </li>
+                        <li class="flex justify-between pb-2">
+                            <span>Sabtu</span>
+                            <span class="font-bold text-white bg-blue-800 px-2 py-0.5 rounded">07.00 - 12.30</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tautan Cepat -->
+                <div class="lg:col-span-1">
+                    <h4 class="text-base font-bold mb-6 text-yellow-400 uppercase tracking-widest">Tautan Cepat</h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="pesan.html" class="text-blue-100 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300 flex items-center gap-2"><svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg> PPDB Online</a></li>
+                        <li><a href="#galery" class="text-blue-100 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300 flex items-center gap-2"><svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg> Galeri Sekolah</a></li>
+                        <li><a href="#berita" class="text-blue-100 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300 flex items-center gap-2"><svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg> Berita Terkini</a></li>
+                        <li><a href="dewanguru.html" class="text-blue-100 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300 flex items-center gap-2"><svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg> Dewan Guru</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-yellow pt-2 mt-4 flex flex-col md:flex-row justify-between items-center gap-1 text-xs text-blue-300">
+                <p>&copy; 2025 SMP Negeri 1 Rantau Selatan. Seluruh Hak Cipta Dilindungi.</p>
+                <p class="flex items-center gap-1 font-medium font-white">
+                    Baktiku Padamu Negeri, Jayalah Dunia Pendidikan <span class="text-yellow-400 mx-1">|</span> Create by <span class="text-white px-2 py-1 rounded-md">Rudy_Febrianto, S.Kom</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Toggle navbar menu (mobile)
+        document.getElementById('menu-toggle').onclick = function() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('hidden');
+        }
+
+        // Toggle dropdown (mobile)
+        function toggleDropdown(id) {
+            if(window.innerWidth >= 768 && id !== 'mobile-profil-dropdown') return; 
+            const el = document.getElementById(id);
+            if(el) {
+                el.classList.toggle('hidden');
+            }
+        }
+
+        /* Komentar & Saran LocalStorage */
+        function tampilkanKomentar() {
+            const list = document.getElementById('list-komentar');
+            list.innerHTML = '';
+            const data = JSON.parse(localStorage.getItem('komentarSaran') || '[]');
+            const isAdmin = localStorage.getItem('smp_isAdmin_v1') === '1';
+
+            if (data.length === 0) {
+                list.innerHTML = '<li class="text-gray-500 text-center py-6 text-sm bg-white rounded-xl border border-dashed border-gray-200">Belum ada pesan masuk. Jadilah yang pertama memberikan saran!</li>';
+                return;
+            }
+
+            function formatDate(ts) {
+                const d = new Date(ts || Date.now());
+                const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+                const day = String(d.getDate()).padStart(2, '0');
+                return `${day} ${months[d.getMonth()]} ${d.getFullYear()}`;
+            }
+
+            const terbaru = data.slice(-4).reverse(); 
+            terbaru.forEach((item, idxRev) => {
+                const li = document.createElement('li');
+                li.className = "bg-white p-4 md:p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition duration-300 group flex flex-col sm:flex-row items-start gap-4 relative";
+                const origIndex = data.length - 1 - idxRev;
+                const tanggal = formatDate(item.createdAt);
+                
+                const initial = item.nama ? item.nama.charAt(0).toUpperCase() : '?';
+                
+                li.innerHTML = `
+                    <div class="flex items-start gap-3 w-full">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 text-blue-900 font-bold text-lg flex items-center justify-center flex-shrink-0 shadow-sm">
+                            ${initial}
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h5 class="font-bold text-gray-900">${escapeHtml(item.nama)}</h5>
+                                <span class="text-[10px] md:text-xs font-semibold text-gray-400 bg-gray-50 px-2 py-0.5 rounded-md border border-gray-100">${tanggal}</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed">${escapeHtml(item.komentar)}</p>
+                        </div>
+                    </div>
+                    ${isAdmin ? `<button data-index="${origIndex}" class="del-kom absolute sm:relative top-4 sm:top-auto right-4 sm:right-auto bg-red-50 hover:bg-red-100 text-red-600 text-xs font-bold px-3 py-1.5 rounded-lg transition opacity-100 sm:opacity-0 sm:group-hover:opacity-100 border border-red-100">Hapus</button>` : ''}
+                `;
+                list.appendChild(li);
+            });
+
+            if (isAdmin) {
+                list.querySelectorAll('.del-kom').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const i = Number(btn.getAttribute('data-index'));
+                        if (!Number.isFinite(i)) return;
+                        if (!confirm('Apakah Anda yakin ingin menghapus komentar ini?')) return;
+                        const arr = JSON.parse(localStorage.getItem('komentarSaran') || '[]');
+                        arr.splice(i, 1);
+                        localStorage.setItem('komentarSaran', JSON.stringify(arr));
+                        tampilkanKomentar();
+                    });
+                });
+            }
+        }
+
+        function escapeHtml(str = '') {
+            return String(str).replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+        }
+
+        document.getElementById('form-komentar').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value.trim();
+            const komentar = document.getElementById('komentar').value.trim();
+            if (!nama || !komentar) return;
+            const data = JSON.parse(localStorage.getItem('komentarSaran') || '[]');
+            data.push({ nama, komentar, createdAt: Date.now() });
+            localStorage.setItem('komentarSaran', JSON.stringify(data));
+            this.reset();
+            tampilkanKomentar();
+            alert('Terima kasih! Saran dan komentar Anda telah terkirim.');
+        });
+
+        window.addEventListener('DOMContentLoaded', tampilkanKomentar);
+    </script>
+
+    <script>
+    (function(){
+        const NEWS_KEY = 'sekolahBerita_v1';
+        const ADMIN_FLAG = 'smp_isAdmin_v1';
+        const ADMIN_PASS = 'febri123'; 
+
+        const btnAdmin = document.getElementById('btn-admin');
+        const adminPanel = document.getElementById('admin-panel');
+        const adminBadge = document.getElementById('admin-badge');
+        const formNews = document.getElementById('form-news');
+        const newsImageInput = document.getElementById('news-image');
+        const listContainer = document.getElementById('newsletter-list');
+        const olderContainer = document.getElementById('older-list');
+        const toggleOlderBtn = document.getElementById('toggle-older');
+        const toggleIcon = document.getElementById('toggle-older-icon');
+        const msgEl = document.getElementById('berita-msg');
+
+        function loadNews() {
+            return JSON.parse(localStorage.getItem(NEWS_KEY) || '[]');
+        }
+        function saveNews(list) {
+            localStorage.setItem(NEWS_KEY, JSON.stringify(list));
+        }
+
+        function isAdmin() {
+            return localStorage.getItem(ADMIN_FLAG) === '1';
+        }
+        function setAdmin(flag) {
+            if(flag) localStorage.setItem(ADMIN_FLAG, '1'); else localStorage.removeItem(ADMIN_FLAG);
+            updateAdminUI();
+        }
+
+        function updateAdminUI() {
+            if(isAdmin()) {
+                adminPanel.classList.remove('hidden');
+                btnAdmin.textContent = 'Keluar Admin';
+                btnAdmin.classList.replace('bg-gray-100', 'bg-red-100');
+                btnAdmin.classList.replace('text-gray-700', 'text-red-700');
+                adminBadge.classList.remove('hidden');
+            } else {
+                adminPanel.classList.add('hidden');
+                btnAdmin.textContent = 'Masuk Admin';
+                btnAdmin.classList.replace('bg-red-100', 'bg-gray-100');
+                btnAdmin.classList.replace('text-red-700', 'text-gray-700');
+                adminBadge.classList.add('hidden');
+            }
+            renderNews();
+            if (typeof tampilkanKomentar === 'function') {
+                tampilkanKomentar();
+            }
+        }
+
+        function escapeHtml(str='') {
+            return String(str).replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+        }
+
+        function readFileAsDataURL(file) {
+            return new Promise((resolve, reject) => {
+                if(!file) return resolve(null);
+                const fr = new FileReader();
+                fr.onload = () => resolve(fr.result);
+                fr.onerror = () => reject(new Error('Gagal membaca file'));
+                fr.readAsDataURL(file);
+            });
+        }
+
+        function renderNews() {
+            const list = loadNews();
+            listContainer.innerHTML = '';
+            olderContainer.innerHTML = '';
+
+            if(list.length === 0) {
+                listContainer.innerHTML = '<div class="text-center py-10 bg-gray-50 rounded-2xl border border-dashed border-gray-200"><p class="text-gray-500 font-medium">Belum ada berita kegiatan yang dipublikasikan.</p></div>';
+                return;
+            }
+
+            list.sort((a,b) => (a.createdAt||0) - (b.createdAt||0));
+
+            const latest = list.slice(-3).reverse(); 
+            latest.forEach((item, idx) => {
+                const imgHtml = item.image ? `<img src="${item.image}" alt="${escapeHtml(item.title)}" class="w-full sm:w-40 h-48 sm:h-32 object-cover rounded-xl shadow-sm mb-4 sm:mb-0 sm:mr-5 flex-shrink-0">` : '';
+                const art = document.createElement('article');
+                art.className = 'group bg-white border border-gray-100 p-5 rounded-2xl shadow-sm hover:shadow-xl hover:border-blue-100 transition duration-300';
+                art.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
+                        <div class="flex flex-col sm:flex-row items-start w-full">
+                            ${imgHtml}
+                            <div class="flex-1 w-full">
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition leading-tight mb-2">${escapeHtml(item.title)}</h4>
+                                <p class="text-xs text-blue-600 font-bold mb-3 flex items-center gap-1.5 bg-blue-50 inline-flex px-2.5 py-1 rounded-md">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                    ${escapeHtml(item.date || '')}
+                                </p>
+                                <p class="text-sm text-gray-600 leading-relaxed">${escapeHtml(item.summary)}</p>
+                            </div>
+                        </div>
+                        ${isAdmin() ? `<div class="mt-4 sm:mt-0 flex-shrink-0 w-full sm:w-auto"><button data-index="${list.length - 1 - idx}" class="del-latest w-full sm:w-auto bg-red-50 hover:bg-red-100 text-red-600 border border-red-100 text-xs font-bold px-4 py-2 rounded-xl transition">Hapus</button></div>` : ''}
+                    </div>
+                `;
+                listContainer.appendChild(art);
+            });
+
+            const older = list.slice(0, Math.max(0, list.length - 3)).reverse(); 
+            if(older.length === 0) {
+                olderContainer.innerHTML = '<div class="text-center py-6 text-gray-500 text-sm font-medium">Tidak ada berita lama yang tersimpan.</div>';
+            } else {
+                older.forEach((item, idxOld) => {
+                    const originalIndex = list.length - 1 - (3 + idxOld); 
+                    const imgHtml = item.image ? `<img src="${item.image}" alt="${escapeHtml(item.title)}" class="w-24 h-20 object-cover rounded-lg shadow-sm mr-4 flex-shrink-0">` : '';
+                    const row = document.createElement('div');
+                    row.className = 'flex flex-col sm:flex-row items-start gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition';
+                    row.innerHTML = `
+                        <div class="flex w-full">
+                            ${imgHtml}
+                            <div class="flex-1">
+                                <h4 class="font-bold text-gray-800 text-sm md:text-base leading-tight mb-1">${escapeHtml(item.title)}</h4>
+                                <p class="text-[10px] text-blue-600 font-bold mb-2">${escapeHtml(item.date || '')}</p>
+                                <p class="text-xs text-gray-600 line-clamp-2 leading-relaxed">${escapeHtml(item.summary)}</p>
+                            </div>
+                        </div>
+                        ${isAdmin() ? `<button data-index="${originalIndex}" class="del-old mt-3 sm:mt-0 bg-red-50 hover:bg-red-100 text-red-600 border border-red-100 text-xs font-bold px-3 py-1.5 rounded-lg transition w-full sm:w-auto whitespace-nowrap">Hapus</button>` : ''}
+                    `;
+                    olderContainer.appendChild(row);
+                });
+            }
+
+            attachHandlers();
+        }
+
+        function attachHandlers() {
+            listContainer.querySelectorAll('.del-latest').forEach(btn => {
+                btn.onclick = (e) => {
+                    const i = Number(btn.getAttribute('data-index'));
+                    if(!Number.isFinite(i)) return;
+                    if(!confirm('Apakah Anda yakin ingin menghapus berita ini?')) return;
+                    const arr = loadNews();
+                    arr.splice(i,1);
+                    saveNews(arr);
+                    renderNews();
+                    showMsg('Berita berhasil dihapus.');
+                };
+            });
+
+            olderContainer.querySelectorAll('.del-old').forEach(btn => {
+                btn.onclick = (e) => {
+                    const i = Number(btn.getAttribute('data-index'));
+                    if(!Number.isFinite(i)) return;
+                    if(!confirm('Apakah Anda yakin ingin menghapus berita ini?')) return;
+                    const arr = loadNews();
+                    arr.splice(i,1);
+                    saveNews(arr);
+                    renderNews();
+                    showMsg('Berita berhasil dihapus.');
+                };
+            });
+        }
+
+        toggleOlderBtn.addEventListener('click', () => {
+            const shown = !olderContainer.classList.contains('hidden');
+            if(shown) {
+                olderContainer.classList.add('hidden');
+                toggleIcon.classList.remove('rotate-180');
+                toggleOlderBtn.querySelector('#toggle-older-label').textContent = 'Lihat Semua Berita';
+            } else {
+                olderContainer.classList.remove('hidden');
+                toggleIcon.classList.add('rotate-180');
+                toggleOlderBtn.querySelector('#toggle-older-label').textContent = 'Tutup Berita Lama';
+            }
+        });
+
+        function showMsg(text, timeout = 3500) {
+            if(!msgEl) return;
+            msgEl.textContent = text;
+            setTimeout(()=> msgEl.textContent = '', timeout);
+        }
+
+        btnAdmin.addEventListener('click', () => {
+            if(isAdmin()) {
+                setAdmin(false);
+                showMsg('Anda berhasil keluar dari mode admin.');
+                return;
+            }
+            const pass = prompt('Masukkan kata sandi admin:');
+            if(pass === null) return;
+            if(pass === ADMIN_PASS) {
+                setAdmin(true);
+                showMsg('Login admin berhasil.');
+            } else {
+                alert('Kata sandi salah. Silakan coba lagi.');
+            }
+        });
+
+        if(formNews) {
+            formNews.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if(!isAdmin()) { alert('Akses ditolak! Hanya admin yang dapat menambahkan berita.'); return; }
+                
+                const title = document.getElementById('news-title').value.trim();
+                const date = document.getElementById('news-date').value;
+                const summary = document.getElementById('news-summary').value.trim();
+                
+                if(!title || !summary) { alert('Silakan lengkapi judul dan ringkasan berita.'); return; }
+
+                const btnSubmit = formNews.querySelector('button[type="submit"]');
+                const originalText = btnSubmit.textContent;
+                btnSubmit.textContent = 'Menyimpan...';
+                btnSubmit.disabled = true;
+
+                const file = newsImageInput && newsImageInput.files && newsImageInput.files[0];
+                let imageData = null;
+                if(file) {
+                    try { 
+                        imageData = await readFileAsDataURL(file); 
+                    } catch(err){ 
+                        console.error(err);
+                        alert('Gagal membaca file gambar.'); 
+                    }
+                }
+
+                const arr = loadNews();
+                arr.push({ title, date, summary, image: imageData, createdAt: Date.now() });
+                saveNews(arr);
+                
+                formNews.reset();
+                renderNews();
+                showMsg('Berita berhasil ditambahkan.');
+                
+                btnSubmit.textContent = originalText;
+                btnSubmit.disabled = false;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateAdminUI();
+        });
+    })();
+    </script>
+</body>
+</html>
